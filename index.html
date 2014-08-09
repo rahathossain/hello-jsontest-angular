@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html data-ng-app="jsonTestApp">
+
+<head>
+<title>JSON Test</title>
+</head>
+<body>
+		<div>
+			<noscript>
+ 				For full functionality of this site it is necessary to enable JavaScript. 
+ 				<br /> 
+ 				Here are the 
+ 				<a href="http://www.enable-javascript.com/" target="_blank">
+ 					instructions how to enable JavaScript in your web browser
+ 				</a>
+			</noscript>
+		</div>
+	<div>
+		<!-- Placeholder for Views -->
+		<div data-ng-view=""></div>
+	</div>
+
+
+	<script src="/lib/angular-1.2.9/angular.min.js"></script>
+	<script src="/lib/angular-1.2.9/angular-route.min.js"></script>
+	<script src="/lib/angular-1.2.9/angular-resource.min.js"></script>
+
+
+	<script>
+		var jsonTestApp = angular.module('jsonTestApp', [ 'ngRoute', 'ngResource' ]);
+
+		jsonTestApp.config(function ($routeProvider) {
+			$routeProvider.
+					when('/', 
+					{
+						controller: 'SimpleController', 
+						templateUrl: 'partials/date.html'
+					}).when('/stamp', 
+					{
+						controller: 'SimpleController',
+						templateUrl: 'partials/stamp.html' 
+					}).otherwise(
+						{ redirectTo: '/' }
+					);	
+		}); 
+
+		jsonTestApp.controller('SimpleController', 
+			function ($scope, $http) {
+
+			  $http({method: 'GET', url: 'http://date.jsontest.com/'}).
+			    success(function(data, status, headers, config) {
+			    	$scope.date = data;    
+			    }).
+			    error(function(data, status, headers, config) {
+				    alert("Error! Try again");
+			    });
+			});			
+	</script>
+
+
+</body>
+</html>
