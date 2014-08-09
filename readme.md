@@ -5,7 +5,7 @@ A simple AngularJS application.
 This application asynchronously calling `http://date.jsontest.com/` service 
 and gets the JSON and shows that using AngularJS 
 
-JSON response:
+Sample JSON response:
 
 ```
 {
