@@ -7,7 +7,7 @@ and gets the JSON and shows that using AngularJS
 
 Sample JSON response:
 
-```
+```js
 {
    "time": "02:00:58 PM",
    "milliseconds_since_epoch": 1407592858799,
@@ -15,4 +15,7 @@ Sample JSON response:
 }
 ```
 
+### AngularJS dependency
+
+download AngularJS dependency from `https://code.angularjs.org/1.2.9/`
 
